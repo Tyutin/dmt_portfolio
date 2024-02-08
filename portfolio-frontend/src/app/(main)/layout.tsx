@@ -2,9 +2,12 @@ import AuthControl from '@/components/AuthControl/AuthControl';
 import { getServerSession } from 'next-auth';
 import { Montserrat } from 'next/font/google';
 import { authOptions } from '../api/auth/[...nextauth]/handler';
-const montserrat = Montserrat({ subsets: ['latin'] });
-import './ShopLayout.scss';
 import { Metadata } from 'next';
+import Header from '@/components/Header/Header';
+import '@/assets/styles/global.scss'
+import './MainLayout.scss';
+
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,9 +23,9 @@ export default async function MainLayout({
   return (
     <html lang="ru">
       <body className={montserrat.className}>
-        <div className="shop-layout">
-          <AuthControl session={session} />
-          <main className="shop-layout__page">{children}</main>
+        <Header session={session} />
+        <div className="main-layout">
+          <main className="main-layout__page">{children}</main>
         </div>
       </body>
     </html>

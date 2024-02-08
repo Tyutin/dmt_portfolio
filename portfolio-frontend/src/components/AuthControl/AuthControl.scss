@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables.scss';
+
 .auth-control {
   width: 50px;
   height: 50px;
@@ -11,7 +13,13 @@
 }
 
 .auth-user-picture {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  @media (max-width: $MOBILE_LARGE_WIDTH) {
+    width: 40px;
+    height: 40px;
+  }
 }

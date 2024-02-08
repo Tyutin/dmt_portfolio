@@ -25,9 +25,7 @@ html {
 }
 
 body {
-  background: rgb(255, 250, 241);
-  background: linear-gradient(90deg, rgba(255, 250, 241, 1) 0%, rgba(255, 244, 227, 1) 100%);
-  color: $MAIN_COLOR;
+  color: #000;
 }
 
 h1,
@@ -52,7 +50,7 @@ a {
 }
 
 .container {
-  max-width: $SHOP_LAYOUT_MAX_WIDTH;
+  max-width: $MAIN_LAYOUT_MAX_WIDTH;
 }
 
 .hide-less-tablet {

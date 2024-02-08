@@ -1,0 +1,140 @@
+@import "../../assets/styles/variables.scss";
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+
+  @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      padding: 20px 10px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      gap: 20px;
+    }
+  }
+
+  &__logo-wrapper {
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      flex-grow: 1;
+    }
+  }
+
+  &__logo {
+    width: 216px;
+    height: 68px;
+    position: relative;
+    display: block;
+
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      width: 129.6px;
+      height: 40.8px;
+    }
+
+    @media (max-width: $MOBILE_LARGE_WIDTH) {
+      width: 108px;
+      height: 34px;
+    }
+  }
+
+  &__nav {
+    transition: left .2s ease;
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      position: fixed;
+      left: 100%;
+      top: 82px;
+      background-color: #000;
+      width: 100vw;
+      height: calc(100vh - 82px);
+      z-index: 20;
+      padding: 50px 20px;
+
+      &_active {
+        left: 0;
+      }
+    }
+    @media (max-width: $MOBILE_LARGE_WIDTH) {
+      top: 80px;
+      height: calc(100vh - 80px);
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      gap: 30px;
+    }
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      gap: 20px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__nav-link {
+    padding: 5px 0;
+    font-size: 24px;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      font-size: 20px;
+    }
+
+    &_active {
+      padding: 5px 0 3px;
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  &__nav-toggle {
+    position: relative;
+    width: 28px;
+    height: 22px;
+    border: none;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    background: transparent;
+    transition: all 0.2s;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 3px;
+      left: 0;
+      top: calc(50% - 1.5px);
+      background-color: #fff;
+      transition: all 0.2s;
+    }
+
+    &_active {
+      border-color: transparent;
+
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

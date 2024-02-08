@@ -1,0 +1,41 @@
+@import '../../assets/styles/variables.scss';
+
+.button {
+  cursor: pointer;
+  transition: all .3s ease;
+  border: none;
+  background: none;
+
+  &_theme_white {
+    font-size: 20px;
+    padding: 16px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: $PINK;
+    line-height: 1;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      font-size: 18px;
+      padding: 12px 12px;
+    }
+  }
+
+  &_theme_select {
+    background-color: #fff;
+    border-radius: 50px;
+    border: 1px solid $ORANGE;
+    font-size: 20px;
+    font-weight: normal;
+    transition: all ease .2s;
+
+    &_active {
+      background-color: $ORANGE;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+}

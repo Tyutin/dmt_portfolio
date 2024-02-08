@@ -1,25 +1,23 @@
 'use client'
-/* eslint-disable @next/next/no-img-element */
 
-import { useSession, signIn } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import './AuthControl.scss';
 import { Session } from 'next-auth';
+import Button from '../Button/Button';
+import './AuthControl.scss';
 
 export default function AuthControl(props: { session: Session | null }) {
   const { session } = props;
   if (!session) {
-    return <button onClick={() => signIn('vk')}>Авторизацияs</button>;
+    return <Button theme='white' onClick={() => signIn('vk')}>Войти</Button>
   }
   return (
-    <Link className="auth-link" href={'/профиль'}>
-      <div className="auth-user-picture">
+    <Link className="auth-link" href={'/profile'}>
         <img
           src={session?.user?.image || ''}
           alt={session?.user?.name || ''}
           className="auth-user-picture"
         />
-      </div>
     </Link>
   );
 }
