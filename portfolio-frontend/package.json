@@ -9,7 +9,11 @@
     "start": "DB_HOST=localhost BACKEND_API_HOST=http://localhost:3001 next start -p 80",
     "build:prod": "DB_HOST=portfolio_db BACKEND_API_HOST=http://portfolio_backend:3001 next build",
     "start:prod": "DB_HOST=portfolio_db BACKEND_API_HOST=http://portfolio_backend:3001next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typeorm": "typeorm-ts-node-esm -d src/typeorm/dataSource/postgresDataSource.ts",
+    "db:drop": "rm -rf dist & DB_HOST=localhost yarn typeorm schema:drop",
+    "db:create": "rm -rf dist & DB_HOST=localhost yarn typeorm migration:generate",
+    "db:migrate": "rm -rf dist & DB_HOST=localhost yarn typeorm migration:run"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -27,6 +31,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

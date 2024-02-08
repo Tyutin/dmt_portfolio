@@ -63,6 +63,8 @@ export function TypeORMAdapter(
       return account.user ?? null
     },
     createUser: async (data) => {
+      console.log('createUser')
+      console.log(data)
       const m = await getManager(c)
       const user = Object.assign({}, new UserEntity(), data)
       const profile = await m.save(ProfileEntity, new ProfileEntity())

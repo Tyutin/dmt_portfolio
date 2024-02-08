@@ -110,13 +110,6 @@ export const authOptions: AuthOptions = {
     async redirect({ url }) {      
       return url
     },
-    // async session({session, user, token}) {
-    //   console.log('*'.repeat(40))
-    //   console.log(user)
-    //   console.log('*'.repeat(40))
-    //   session.user.firstName = user.firstName
-    //   return session
-    // }
   }
 }
 

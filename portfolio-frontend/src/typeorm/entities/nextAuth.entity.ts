@@ -5,11 +5,9 @@ import {
   ManyToOne,
   OneToMany,
   ValueTransformer,
-  OneToOne,
-  JoinColumn,
 } from 'typeorm';
 import type { Relation } from 'typeorm';
-import { ProfileEntity } from '../profile/profile.entity';
+import { ProfileType } from './types/profileType';
 
 const transformer: Record<'date' | 'bigint', ValueTransformer> = {
   date: {
@@ -26,6 +24,15 @@ const transformer: Record<'date' | 'bigint', ValueTransformer> = {
 export class UserEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
+
+  @Column({ nullable: true })
+  isBanned: boolean;
+
+  @Column({ nullable: true })
+  isAdmin: boolean;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  registerAt: Date;
 
   @Column({ type: 'varchar', nullable: true })
   name!: string | null;
@@ -60,9 +67,24 @@ export class UserEntity {
   @OneToMany(() => AccountEntity, (account) => account.userId)
   accounts!: Relation<AccountEntity>[];
 
-  @OneToOne(() => ProfileEntity, { nullable: true })
-  @JoinColumn()
-  profile: Relation<ProfileEntity>;
+  @Column({nullable: true})
+  shortInfo: string | null
+
+  @Column({nullable: true})
+  about: string | null
+
+  @Column({nullable: true})
+  experience: string | null
+
+  @Column()
+  slug: string
+
+  @Column({
+    type: 'enum',
+    enum: ProfileType,
+    default: ProfileType.student,
+  })
+  status: ProfileType;
 }
 
 @Entity('AccountEntity', { name: 'accounts' })
