@@ -2,8 +2,7 @@ import { DataSourceOptions, DataSource, EntityManager } from 'typeorm'
 import {defaultEntities} from './entities'
 import { parseDataSourceConfig, updateConnectionEntities } from './utils'
 import {AdapterAccount, AdapterUser, AdapterSession, Adapter } from 'next-auth/adapters'
-import { UserEntity } from '../../../../../../../portfolio-backend/src/next-auth/nextAuth.entity'
-import { ProfileEntity } from '../../../../../../../portfolio-backend/src/profile/profile.entity'
+import { UserEntity } from '../../../../../../../typeorm/src/entities/nextAuth.entity'
 
 export const entities = defaultEntities
 export type Entities = typeof entities
@@ -48,7 +47,6 @@ export function TypeORMAdapter(
       SessionEntity: defaultEntities.SessionEntity,
       AccountEntity: defaultEntities.AccountEntity,
       VerificationTokenEntity: defaultEntities.VerificationTokenEntity,
-      ProfileEntity: defaultEntities.ProfileEntity
     },
   }
 
@@ -63,12 +61,8 @@ export function TypeORMAdapter(
       return account.user ?? null
     },
     createUser: async (data) => {
-      console.log('createUser')
-      console.log(data)
       const m = await getManager(c)
       const user = Object.assign({}, new UserEntity(), data)
-      const profile = await m.save(ProfileEntity, new ProfileEntity())
-      user.profile = profile
       return await m.save('UserEntity', user)
     },
     async linkAccount(data) {
@@ -109,9 +103,6 @@ export function TypeORMAdapter(
 
       if (!sessionAndUser) return null
       const { user, ...session } = sessionAndUser
-      // console.log('='.repeat(40))
-      // console.log(user)
-      // console.log('='.repeat(40))
       return { session, user }
     },
     async updateSession(data) {

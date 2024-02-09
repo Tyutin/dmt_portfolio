@@ -1,4 +1,3 @@
-import * as nextAuthEntities from '../../../../../../../portfolio-backend/src/next-auth/nextAuth.entity'
-import { ProfileEntity } from '../../../../../../../portfolio-backend/src/profile/profile.entity'
+import * as nextAuthEntities from '../../../../../../../typeorm/src/entities/nextAuth.entity'
 
-export const defaultEntities = {...nextAuthEntities, ProfileEntity}
+export const defaultEntities = {...nextAuthEntities}

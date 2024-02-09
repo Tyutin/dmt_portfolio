@@ -68,13 +68,13 @@ export class UserEntity {
   accounts!: Relation<AccountEntity>[];
 
   @Column({nullable: true})
-  shortInfo: string | null
+  shortInfo: string 
 
   @Column({nullable: true})
-  about: string | null
+  about: string 
 
   @Column({nullable: true})
-  experience: string | null
+  experience: string 
 
   @Column()
   slug: string

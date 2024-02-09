@@ -1,7 +1,7 @@
 import { AuthOptions, User } from 'next-auth'
 import NextAuth from 'next-auth/next'
 import  VkProvider, {VkProfile}  from 'next-auth/providers/vk';
-import config from '../../../../../../portfolio-backend/dataSource/dataSource.config'
+import {dataSourceConfig} from '../../../../../../typeorm/src/config'
 import { TypeORMAdapter } from './adapter';
 
 const useSecureCookies = (process.env.NEXTAUTH_URL || '').startsWith('https://');
@@ -74,7 +74,7 @@ export const authOptions: AuthOptions = {
       },
     },
   },
-  adapter: TypeORMAdapter(config),
+  adapter: TypeORMAdapter(dataSourceConfig),
   providers: [
     VkProvider({
       clientId: process.env.VK_CLIENT_ID || '',
@@ -95,7 +95,8 @@ export const authOptions: AuthOptions = {
           firstName: profile.first_name,
           lastName: profile.last_name,
           bdate: profile.bdate,
-          imageMax: profile.photo_max_orig
+          imageMax: profile.photo_max_orig,
+          slug: profile.id.toString(),
         } as User
       },
     })
