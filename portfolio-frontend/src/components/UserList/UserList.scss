@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables.scss';
+
+.user-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 35px;
+  grid-row-gap: 35px;
+
+  @media (max-width: 1295px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $MOBILE_LARGE_WIDTH) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__element {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+}

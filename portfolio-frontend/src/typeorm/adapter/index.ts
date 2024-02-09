@@ -1,5 +1,4 @@
 import {AdapterAccount, AdapterUser, AdapterSession, Adapter } from 'next-auth/adapters'
-import { UserEntity, AccountEntity, SessionEntity, VerificationTokenEntity } from '../../../../typeorm/src/entities/nextAuth.entity'
 import { getManager } from './manager'
 
 export function TypeORMAdapter(

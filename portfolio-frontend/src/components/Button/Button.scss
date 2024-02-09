@@ -24,18 +24,9 @@
     }
   }
 
-  &_theme_select {
-    background-color: #fff;
-    border-radius: 50px;
-    border: 1px solid $ORANGE;
-    font-size: 20px;
-    font-weight: normal;
-    transition: all ease .2s;
-
-    &_active {
-      background-color: $ORANGE;
-      color: #fff;
-      font-weight: 500;
-    }
+  &_theme_user-link {
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 3px 3px 4px rgba(0,0,0,0.3);
   }
 }

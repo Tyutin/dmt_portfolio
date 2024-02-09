@@ -5,7 +5,7 @@ import './Button.scss';
 
 export type ButtonProps = {
   onClick?: () => void;
-  theme: 'white' | 'select' | null;
+  theme: 'white' | 'user-link' | null;
   additionalClasses?: string | string[];
   type?: 'button' | 'submit' | 'reset';
   children?: React.ReactNode;

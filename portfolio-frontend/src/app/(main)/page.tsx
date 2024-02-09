@@ -1,8 +1,14 @@
 import { projectTypeormAdapter } from "@/typeorm/projectTypeormAdapter";
 import "./MainPage.scss";
+import { ProfileType } from "../../../../typeorm/src/entities/types/profileType";
+import UserList from "@/components/UserList/UserList";
 
 export default async function MainPage() {
-  const users = await projectTypeormAdapter.getAllUsers();
+  const users = await projectTypeormAdapter.users.getAllUsers();
+  // const students = await projectTypeormAdapter.students.getStudents()
+  // const teachers = await projectTypeormAdapter.teachers.getTeachers()
+  const students = [...users, ...users, ...users, ...users, ...users, ...users, ...users]
+  const teachers = [...users, ...users, ...users, ...users, ...users, ...users, ...users]
   return (
     <div className="main-page">
       <section className="main-page__section">
@@ -14,6 +20,7 @@ export default async function MainPage() {
             senectus neque, lorem sit in mattis. Vehicula eget eget tellus{" "}
           </p>
         </div>
+        {!!teachers.length && <UserList users={teachers} />}
       </section>
 
       <section className="main-page__section">
@@ -25,10 +32,7 @@ export default async function MainPage() {
             senectus neque, lorem sit in mattis. Vehicula eget eget tellus{" "}
           </p>
         </div>
-      </section>
-
-      <section className="main-page__section">
-        {JSON.stringify(users)}
+        {!!students.length && <UserList users={students} />}
       </section>
     </div>
   );
