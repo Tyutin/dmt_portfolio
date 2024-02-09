@@ -1,6 +1,8 @@
+import { projectTypeormAdapter } from "@/typeorm/projectTypeormAdapter";
 import "./MainPage.scss";
 
-export default function MainPage() {
+export default async function MainPage() {
+  const users = await projectTypeormAdapter.getAllUsers();
   return (
     <div className="main-page">
       <section className="main-page__section">
@@ -23,6 +25,10 @@ export default function MainPage() {
             senectus neque, lorem sit in mattis. Vehicula eget eget tellus{" "}
           </p>
         </div>
+      </section>
+
+      <section className="main-page__section">
+        {JSON.stringify(users)}
       </section>
     </div>
   );

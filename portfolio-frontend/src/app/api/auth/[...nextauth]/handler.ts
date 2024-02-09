@@ -2,7 +2,7 @@ import { AuthOptions, User } from 'next-auth'
 import NextAuth from 'next-auth/next'
 import  VkProvider, {VkProfile}  from 'next-auth/providers/vk';
 import {dataSourceConfig} from '../../../../../../typeorm/src/config'
-import { TypeORMAdapter } from './adapter';
+import { TypeORMAdapter } from '../../../../typeorm/adapter';
 
 const useSecureCookies = (process.env.NEXTAUTH_URL || '').startsWith('https://');
 const cookiePrefix = useSecureCookies ? '__Secure-' : ''; 
