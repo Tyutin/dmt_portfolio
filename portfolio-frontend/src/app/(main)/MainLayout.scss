@@ -15,4 +15,70 @@
       padding: 20px 5px;
     }
   }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    padding-bottom: 120px;
+    position: relative;
+
+    @media (max-width: $TABLET_SHORT_WIDTH) {
+      gap: 40px;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 180px;
+      height: 8px;
+      background-color: $PINK;
+      border-radius: 5px;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__section-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 600px;
+
+    @media (max-width: $TABLET_SHORT_WIDTH) {
+      max-width: unset;
+    }
+  }
+
+  &__section-subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    color: $PINK;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1)) {
+      font-size: 20px;
+    }
+  }
+
+  &__section-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1)) {
+      font-size: 30px;
+    }
+  }
+
+  &__section-info-text {
+    font-size: 14px;
+    max-width: 600px;
+  }
 }
