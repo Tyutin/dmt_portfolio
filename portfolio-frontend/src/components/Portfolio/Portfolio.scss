@@ -1,0 +1,35 @@
+@import '../../assets/styles/variables.scss';
+
+.portfolio {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    gap: 75px;
+    flex-wrap: wrap;
+  
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      gap: 50px;
+    }
+  
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      gap: 10px;
+    }
+  }
+
+  &__element {
+    display: flex;
+    justify-content: center;
+    width: calc((100% - 150px) / 3);
+  
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      width: calc((100% - 50px) / 2);
+    }
+  
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      width: calc((100% - 10px) / 2);
+    }
+  }
+}

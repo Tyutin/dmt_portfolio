@@ -1,20 +1,17 @@
 @import '../../assets/styles/variables.scss';
 
-$USER_CARD_MAX_WIDTH: 400px;
-
 .user-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: $USER_CARD_MAX_WIDTH;
+  max-width: 400px;
 
   &__image {
+    @include shadowSquare;
     width: 100%;
     max-height: 270px;
     object-fit: cover;
     margin-bottom: 12px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 5px 3px rgb(0 0 0 / 25%);
   }
 
   &__name {

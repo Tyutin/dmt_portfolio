@@ -1,22 +1,25 @@
-import { projectTypeormAdapter } from '@/typeorm/projectTypeormAdapter';
-import { redirect } from 'next/navigation';
-import React from 'react'
+import UserProfile from "@/components/UserProfile/UserProfile";
+import { projectTypeormAdapter } from "@/typeorm/projectTypeormAdapter";
+import { UserInfoType } from "@/types/UserInfo.type";
+import { redirect } from "next/navigation";
+import React from "react";
 
 export default async function StudentPage({
   params,
 }: {
-  params: { slug: string };
+  params: { userId: string };
 }) {
-  const { slug } = params;
-  const user = await projectTypeormAdapter.students.getStudentBySlug(slug)
-  if (!user) {
-    redirect('/students')
+  const { userId } = params;
+  const student = await projectTypeormAdapter.students.getStudentBySlug(userId);
+  if (!student) {
+    redirect("/students");
   }
+  const userInfo: UserInfoType = {...student}
   return (
-    <div>
-      <pre>
-        {JSON.stringify(user, null, 2)}
-      </pre>
+    <div className="student-page">
+      <UserProfile
+        user={userInfo}
+      />
     </div>
-  )
+  );
 }

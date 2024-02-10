@@ -15,13 +15,7 @@ $TABLET_SHORT_WIDTH: 768px;
 $MOBILE_LARGE_WIDTH: 425px;
 $MOBILE_XSMALL_WIDTH: 320px;
 
-@mixin card {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  gap: 5px;
-
-  @media (max-width: $MOBILE_LARGE_WIDTH) {
-    padding: 10px;
-  }
+@mixin shadowSquare {
+  box-shadow: 3px 3px 5px 3px rgb(0 0 0 / 25%);
+  border-radius: 10px;
 }

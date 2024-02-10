@@ -1,0 +1,150 @@
+@import "../../assets/styles/variables.scss";
+
+.user-profile {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+
+  @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+    gap: 40px;
+  }
+
+  @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+    flex-direction: column;
+  }
+
+  &__aside {
+    @include shadowSquare;
+    background: linear-gradient(180deg, #ea047e 0%, #ff6d28 100%);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      width: 100%;
+      padding: 20px;
+      gap: 20px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      padding: 20px 10px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      padding: 20px 10px 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    padding: 60px 30px;
+    color: #fff;
+
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      width: 350px;
+    }
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      width: 100%;
+      padding: 0;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      gap: 10px;
+    }
+  }
+
+  &__avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-bottom: 20px;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      width: 150px;
+      height: 150px;
+      border: 3px solid #fff;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      font-size: 28px;
+    }
+  }
+
+  &__vk-link {
+    font-weight: 600;
+    font-size: 24px;
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      font-size: 18px;
+    }
+  }
+
+  &__short-info {
+    text-align: center;
+  }
+
+  &__toggle-list {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__toggle-element {
+    border-top: 2px solid #fff;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) and (min-width: $TABLET_SHORT_WIDTH) {
+      border-top: none;
+    }
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      gap: 10px;
+    }
+  }
+
+  &__toggle-button {
+    padding: 5px 0;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      font-size: 26px;
+    }
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      font-size: 18px;
+      padding: 8px 0;
+    }
+
+    &_active {
+      color: #80568e;
+    }
+  }
+
+  &__content {
+    // flex-grow: 1;
+  }
+}
