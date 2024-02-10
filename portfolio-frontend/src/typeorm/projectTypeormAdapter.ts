@@ -16,7 +16,8 @@ function getTypeormAdapter() {
         const manager = await getManager()
         return await manager.find(UserEntity, {
           where: {
-            status: ProfileType.student
+            status: ProfileType.student,
+            isHidden: false
           }
         })
       },
@@ -25,7 +26,8 @@ function getTypeormAdapter() {
         return await manager.findOne(UserEntity, {
           where: {
             slug,
-            status: ProfileType.student
+            status: ProfileType.student,
+            isHidden: false
           }
         })
       },
@@ -35,7 +37,8 @@ function getTypeormAdapter() {
         const manager = await getManager()
         return await manager.find(UserEntity, {
           where: {
-            status: ProfileType.teacher
+            status: ProfileType.teacher,
+            isHidden: false
           }
         })
       },
@@ -44,7 +47,8 @@ function getTypeormAdapter() {
         return await manager.findOne(UserEntity, {
           where: {
             slug,
-            status: ProfileType.teacher
+            status: ProfileType.teacher,
+            isHidden: false
           }
         })
       },

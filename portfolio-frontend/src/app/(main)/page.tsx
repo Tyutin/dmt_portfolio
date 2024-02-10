@@ -5,6 +5,7 @@ import UserList from "@/components/UserList/UserList";
 
 export default async function MainPage() {
   const users = await projectTypeormAdapter.users.getAllUsers();
+  // TODO 
   // const students = await projectTypeormAdapter.students.getStudents()
   // const teachers = await projectTypeormAdapter.teachers.getTeachers()
   const students = [

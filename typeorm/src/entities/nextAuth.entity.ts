@@ -25,11 +25,14 @@ export class UserEntity {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column({ nullable: true })
+  @Column({ default: false })
   isBanned: boolean;
 
-  @Column({ nullable: true })
+  @Column({ default: false })
   isAdmin: boolean;
+
+  @Column({ default: false })
+  isHidden: boolean;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   registerAt: Date;
@@ -78,6 +81,9 @@ export class UserEntity {
 
   @Column()
   slug: string
+
+  @Column()
+  vkId: string
 
   @Column({
     type: 'enum',
