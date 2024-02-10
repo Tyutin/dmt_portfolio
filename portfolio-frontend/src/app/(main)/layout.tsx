@@ -1,4 +1,3 @@
-import AuthControl from '@/components/AuthControl/AuthControl';
 import { getServerSession } from 'next-auth';
 import { Montserrat } from 'next/font/google';
 import { authOptions } from '../api/auth/[...nextauth]/handler';

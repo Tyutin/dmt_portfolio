@@ -111,6 +111,12 @@ export const authOptions: AuthOptions = {
     async redirect({ url }) {      
       return url
     },
+    async session({ session, token, user }) {
+      session.user.id = user.id
+      session.user.isAdmin = user.isAdmin
+      session.user.isBanned = user.isBanned
+      return session
+    }
   }
 }
 

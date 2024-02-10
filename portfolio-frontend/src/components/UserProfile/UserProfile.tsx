@@ -42,11 +42,11 @@ export default function UserProfile({ user }: UserProfileProps) {
             {user.lastName} {user.firstName}
           </h1>
           <a
-            href={`https://vk.com/id${user.slug}`} //TODO поменять slug на айди
+            href={`https://vk.com/id${user.vkId}`} //TODO поменять slug на айди
             target="_blank"
             className="user-profile__vk-link"
           >
-            vk.com/id{user.slug}
+            vk.com/id{user.vkId}
           </a>
           {!!user.shortInfo && (
             <p className="user-profile__short-info">{user.shortInfo}</p>
@@ -74,9 +74,13 @@ export default function UserProfile({ user }: UserProfileProps) {
       <main className="user-profile__content">
         <section className="main-layout__section">
           <h2 className="main-layout__section-title">
-            {activeTab === 'about' ? 'Обо мне' : activeTab === 'experience' ? 'Опыт работы' : "Портфолио"}
+            {activeTab === "about"
+              ? "Обо мне"
+              : activeTab === "experience"
+              ? "Опыт работы"
+              : "Портфолио"}
           </h2>
-          {activeTab === 'portfolio' ? <Portfolio/> : <p>{user[activeTab]}</p>}
+          {activeTab === "portfolio" ? <Portfolio /> : <p>{user[activeTab]}</p>}
         </section>
       </main>
     </div>

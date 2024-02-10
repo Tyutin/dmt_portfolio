@@ -10,6 +10,22 @@ function getTypeormAdapter() {
         const manager = await getManager()
         return await manager.find(UserEntity)
       },
+      async getUserBySlug(slug: string): Promise<UserEntity | null> {
+        const manager = await getManager()
+        return await manager.findOne(UserEntity, {
+          where: {
+            slug,
+          }
+        })
+      },
+      async getUserById(id: string): Promise<UserEntity | null> {
+        const manager = await getManager()
+        return await manager.findOne(UserEntity, {
+          where: {
+            id,
+          }
+        })
+      },
     },
     students: {
       async getStudents(): Promise<UserEntity[]> {

@@ -7,10 +7,10 @@ import React from "react";
 export default async function StudentPage({
   params,
 }: {
-  params: { userId: string };
+  params: { slug: string };
 }) {
-  const { userId } = params;
-  const student = await projectTypeormAdapter.students.getStudentBySlug(userId);
+  const { slug } = params;
+  const student = await projectTypeormAdapter.students.getStudentBySlug(slug);
   if (!student) {
     redirect("/students");
   }
