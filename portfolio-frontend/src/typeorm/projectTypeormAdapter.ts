@@ -26,6 +26,15 @@ function getTypeormAdapter() {
           }
         })
       },
+      async updateUser(userId: string, userInfo: Partial<UserEntity>): Promise<UserEntity | Error> {
+        const manager = await getManager()
+        const user = await manager.findOne(UserEntity, {where: {id: userId}})
+        if (!user) {
+          return new Error('Пользователь с таким ID не найден', {cause: '404'})
+        }
+        Object.assign(user, userInfo)
+        return await manager.save(user)
+      }
     },
     students: {
       async getStudents(): Promise<UserEntity[]> {

@@ -4,28 +4,8 @@ import { ProfileType } from "../../../../typeorm/src/entities/types/profileType"
 import UserList from "@/components/UserList/UserList";
 
 export default async function MainPage() {
-  const users = await projectTypeormAdapter.users.getAllUsers();
-  // TODO 
-  // const students = await projectTypeormAdapter.students.getStudents()
-  // const teachers = await projectTypeormAdapter.teachers.getTeachers()
-  const students = [
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-  ];
-  const teachers = [
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-    ...users,
-  ];
+  const students = await projectTypeormAdapter.students.getStudents()
+  const teachers = await projectTypeormAdapter.teachers.getTeachers()
   return (
     <div className="main-page">
       <section className="main-layout__section">
@@ -37,7 +17,7 @@ export default async function MainPage() {
             senectus neque, lorem sit in mattis. Vehicula eget eget tellus{" "}
           </p>
         </div>
-        {!!teachers.length && <UserList users={teachers} />}
+        {!!teachers.length ? <UserList users={teachers} /> : <p>Список пуст</p>}
       </section>
 
       <section className="main-layout__section">
@@ -49,7 +29,7 @@ export default async function MainPage() {
             senectus neque, lorem sit in mattis. Vehicula eget eget tellus{" "}
           </p>
         </div>
-        {!!students.length && <UserList users={students} />}
+        {!!students.length ? <UserList users={students} /> : <p>Список пуст</p>}
       </section>
     </div>
   );

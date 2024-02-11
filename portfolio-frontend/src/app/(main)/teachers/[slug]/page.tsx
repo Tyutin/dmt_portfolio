@@ -1,6 +1,6 @@
 import UserProfile from "@/components/UserProfile/UserProfile";
 import { projectTypeormAdapter } from "@/typeorm/projectTypeormAdapter";
-import { UserInfoType } from "@/types/UserInfo.type";
+import { getPlainObject } from "@/utils";
 import { redirect } from "next/navigation";
 
 export default async function TeacherPage({
@@ -13,10 +13,9 @@ export default async function TeacherPage({
   if (!teacher) {
     redirect("/teachers");
   }
-  const userInfo: UserInfoType = { ...teacher };
   return (
     <div className="teacher-page">
-      <UserProfile user={userInfo} />
+      <UserProfile user={getPlainObject(teacher)} />
     </div>
   );
 }

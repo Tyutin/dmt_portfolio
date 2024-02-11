@@ -1,10 +1,10 @@
 "use client";
 
-import { UserInfoType } from "@/types/UserInfo.type";
 import "./UserProfile.scss";
 import { useState } from "react";
 import classNames from "classnames";
 import Portfolio from "../Portfolio/Portfolio";
+import { UserEntity } from "../../../../typeorm/src/entities/nextAuth.entity";
 
 type ActiveTabType = "portfolio" | "about" | "experience";
 
@@ -24,7 +24,7 @@ const buttonList: { text: string; value: ActiveTabType }[] = [
 ];
 
 type UserProfileProps = {
-  user: UserInfoType;
+  user: UserEntity;
 };
 
 export default function UserProfile({ user }: UserProfileProps) {

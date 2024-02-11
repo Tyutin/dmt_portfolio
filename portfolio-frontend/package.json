@@ -16,6 +16,9 @@
     "db:migrate": "rm -rf dist & DB_HOST=localhost yarn typeorm migration:run"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "1.18.4",
+    "@ant-design/nextjs-registry": "^1.0.0",
+    "antd": "5.13.2",
     "classnames": "^2.5.1",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
