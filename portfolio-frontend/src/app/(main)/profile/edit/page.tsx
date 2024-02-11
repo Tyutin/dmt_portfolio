@@ -19,7 +19,7 @@ export default async function EditProfilePage() {
   return (
     <AntdRegistry>
       <div className="edit-profile-page">
-        <UpdateProfileForm user={getPlainObject(user)} />
+        <UpdateProfileForm user={getPlainObject(user)} isAdmin={session.user.isAdmin} />
       </div>
     </AntdRegistry>
   );

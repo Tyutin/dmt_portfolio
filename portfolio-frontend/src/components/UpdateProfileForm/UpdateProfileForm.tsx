@@ -1,23 +1,32 @@
 "use client";
-import { Alert, Form, Input } from "antd";
+import { Alert, Checkbox, Form, Input, Select } from "antd";
 import { useState } from "react";
 import "./UpdateProfileForm.scss";
 import Button from "../Button/Button";
 import { ProfileType } from "../../../../typeorm/src/entities/types/profileType";
-import { updateSelfProfileAction } from "@/actions";
+import { updateSelfProfileAction, updateProfileAction } from "@/actions";
 import { UserEntity } from "../../../../typeorm/src/entities/nextAuth.entity";
 
 type UpdateProfileFormProps = {
   user: UserEntity;
+  isAdmin?: boolean;
 };
 
-export default function UpdateProfileForm({ user }: UpdateProfileFormProps) {
+export default function UpdateProfileForm({
+  user,
+  isAdmin = false,
+}: UpdateProfileFormProps) {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState<Error | null>();
   const [successUpdateMessage, setSuccessUpdateMessage] = useState<string>();
   const onFinish = async (values: Partial<UserEntity>) => {
     setIsFetching(true);
-    const updatedUser = await updateSelfProfileAction(values);
+    let updatedUser;
+    if (isAdmin) {
+      updatedUser = await updateProfileAction(user.id, values);
+    } else {
+      updatedUser = await updateSelfProfileAction(values);
+    }
     if (updatedUser instanceof Error) {
       setError(updatedUser);
     } else {
@@ -130,11 +139,7 @@ export default function UpdateProfileForm({ user }: UpdateProfileFormProps) {
           },
         ]}
       >
-        <Input
-          type="text"
-          maxLength={60}
-          style={{ maxWidth: "500px" }}
-        />
+        <Input type="text" maxLength={60} style={{ maxWidth: "500px" }} />
       </Form.Item>
       <Form.Item>
         <button
@@ -145,12 +150,41 @@ export default function UpdateProfileForm({ user }: UpdateProfileFormProps) {
             padding: "2px 8px",
           }}
           onClick={() => {
-            form.setFieldValue('slug', user.vkId)
+            form.setFieldValue("slug", user.vkId);
           }}
         >
           Ссылка по умолчанию
         </button>
       </Form.Item>
+      {isAdmin && (
+        <>
+          <Form.Item label="Статус" name="status" style={{ flexGrow: "1" }}>
+            <Select placeholder="Статус" style={{ minWidth: "180px" }}>
+              <Select.Option value={ProfileType.student}>Студент</Select.Option>
+              <Select.Option value={ProfileType.teacher}>
+                Преподаватель
+              </Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
+            label="Администратор"
+            name="isAdmin"
+            valuePropName="checked"
+          >
+            <Checkbox />
+          </Form.Item>
+          <Form.Item
+            label="Скрытый пользователь"
+            name="isHidden"
+            valuePropName="checked"
+          >
+            <Checkbox />
+          </Form.Item>
+          <Form.Item label="Забанен" name="isBanned" valuePropName="checked">
+            <Checkbox />
+          </Form.Item>
+        </>
+      )}
       <Form.Item>
         <Button
           theme="gradient"

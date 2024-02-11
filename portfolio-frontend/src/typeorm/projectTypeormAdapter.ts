@@ -52,7 +52,6 @@ function getTypeormAdapter() {
           where: {
             slug,
             status: ProfileType.student,
-            isHidden: false
           }
         })
       },
@@ -73,7 +72,6 @@ function getTypeormAdapter() {
           where: {
             slug,
             status: ProfileType.teacher,
-            isHidden: false
           }
         })
       },

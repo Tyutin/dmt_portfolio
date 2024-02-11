@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/variables.scss';
+
+.teacher-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__edit-link {
+    font-weight: 600;
+    text-decoration: underline;
+    color: $PINK;
+    align-self: flex-end;
+  }
+}
