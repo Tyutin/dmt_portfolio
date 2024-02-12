@@ -58,3 +58,8 @@ export async function updateProfileAction(
   revalidatePath("/");
   return getPlainObject(updatedUser);
 }
+
+export async function addWorkAction(userId: string, title: string, imageName: string) {
+  await projectTypeormAdapter.wokrs.addWork(userId, title, imageName)
+  revalidatePath("/");
+}

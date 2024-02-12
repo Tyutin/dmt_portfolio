@@ -25,9 +25,10 @@ const buttonList: { text: string; value: ActiveTabType }[] = [
 
 type UserProfileProps = {
   user: UserEntity;
+  editable?: boolean
 };
 
-export default function UserProfile({ user }: UserProfileProps) {
+export default function UserProfile({ user, editable = false }: UserProfileProps) {
   const [activeTab, setActiveTab] = useState<ActiveTabType>("portfolio");
   return (
     <div className="user-profile">
@@ -80,18 +81,9 @@ export default function UserProfile({ user }: UserProfileProps) {
               ? "Опыт работы"
               : "Портфолио"}
           </h2>
-          {activeTab === "portfolio" ? <Portfolio /> : <p>{user[activeTab]}</p>}
+          {activeTab === "portfolio" ? <Portfolio works={user.works} userId={editable ? user.id : null} /> : <p>{user[activeTab] || 'Здесь пока пусто'}</p>}
         </section>
       </main>
     </div>
-  );
-}
-
-function UserProfileAbout({ about }: { about: string }) {
-  return (
-    <section className="main-layout__section">
-      <h2 className="main-layout__section-subtitle">Обо мне</h2>
-      <p>{about}</p>
-    </section>
   );
 }

@@ -13,6 +13,10 @@
     flex-direction: column;
   }
 
+  &__content {
+    flex-grow: 1
+  }
+
   &__aside {
     @include shadowSquare;
     background: linear-gradient(180deg, #ea047e 0%, #ff6d28 100%);

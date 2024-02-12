@@ -6,6 +6,7 @@
   width: 100%;
 
   &__list {
+    width: 100%;
     display: flex;
     gap: 75px;
     flex-wrap: wrap;
@@ -15,7 +16,7 @@
     }
   
     @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
-      gap: 10px;
+      gap: 15px;
     }
   }
 
@@ -29,7 +30,34 @@
     }
   
     @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
-      width: calc((100% - 10px) / 2);
+      width: calc((100% - 15px) / 2);
     }
+  }
+}
+
+.portfolio-card {
+  @include shadowSquare;
+  width: 280px;
+  height: 280px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  @media (max-width: 585px) {
+    width: calc((100vw - 25px) / 2);
+    height: calc((100vw - 25px) / 2);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
   }
 }

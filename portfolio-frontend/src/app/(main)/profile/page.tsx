@@ -18,8 +18,10 @@ export default async function ProfilePage() {
   }
   return (
     <div className="profile-page">
-      <Link href="/profile/edit" className="profile-page__edit-link">Редактировать профиль</Link>
-      <UserProfile user={getPlainObject(user)} />
+      <Link href="/profile/edit" className="profile-page__edit-link">
+        Редактировать профиль
+      </Link>
+      <UserProfile user={getPlainObject(user)} editable={true} />
     </div>
   );
 }
