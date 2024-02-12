@@ -1,25 +1,67 @@
-@import '../../assets/styles/variables.scss';
+@import "../../assets/styles/variables.scss";
 
 .auth-control {
-  width: 50px;
-  height: 50px;
-  background-color: blueviolet;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
+  &__user-picture {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 2px solid #fff;
 
-  @media (max-width: 425px) {
-    width: 30px;
-    height: 30px;
+    @media (max-width: $MOBILE_LARGE_WIDTH) {
+      width: 40px;
+      height: 40px;
+    }
   }
-}
 
-.auth-user-picture {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid #fff;
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #ff6d28 0%, #ea047e 100%);
+    font-size: 24px;
+    color: #fff;
 
-  @media (max-width: $MOBILE_LARGE_WIDTH) {
-    width: 40px;
-    height: 40px;
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      padding: 16px 22px;
+    }
+  }
+
+  &__menu-link {
+    font-size: 22px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      font-size: 20px;
+    }
+  }
+
+  &__overlay-tooltip {
+    padding-top: 41px;
+
+    @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
+      padding-top: 36px;
+    }
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      padding-top: 16px;
+    }
+
+    
+    & .ant-popover-inner {
+      padding: 0;
+      top: 98px;
+    }
   }
 }
