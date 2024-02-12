@@ -68,24 +68,24 @@ export default function Header({ session }: HeaderProps) {
             </li>
             <li className="header__nav-element">
               <Link
-                href={"/"}
+                href={"/students"}
                 className={classNames(
                   "header__nav-link",
-                  pathname === "/" && "header__nav-link_active"
+                  pathname === "/students" && "header__nav-link_active"
                 )}
               >
-                О нас
+                Студенты
               </Link>
             </li>
             <li className="header__nav-element">
               <Link
-                href={"/"}
+                href={"/teachers"}
                 className={classNames(
                   "header__nav-link",
-                  pathname === "/" && "header__nav-link_active"
+                  pathname === "/teachers" && "header__nav-link_active"
                 )}
               >
-                Советы по обучению
+                Преподаватели
               </Link>
             </li>
             <li className="header__nav-element">
