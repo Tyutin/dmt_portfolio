@@ -64,6 +64,7 @@
     border-radius: 50%;
     border: 5px solid #fff;
     margin-bottom: 20px;
+    object-fit: cover;
 
     @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
       width: 150px;

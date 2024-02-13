@@ -19,5 +19,9 @@
     display: flex;
     justify-content: space-around;
     padding: 5px;
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      padding: 0;
+    }
   }
 }

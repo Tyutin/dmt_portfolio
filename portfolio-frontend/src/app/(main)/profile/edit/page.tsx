@@ -6,6 +6,7 @@ import { projectTypeormAdapter } from "@/typeorm/projectTypeormAdapter";
 import UpdateProfileForm from "@/components/UpdateProfileForm/UpdateProfileForm";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { getPlainObject } from "@/utils";
+import UpdateProfileAvatarForm from "@/components/UpdateProfileAvatarForm/UpdateProfileAvatarForm";
 
 export default async function EditProfilePage() {
   const session = await getServerSession(authOptions);
@@ -19,6 +20,7 @@ export default async function EditProfilePage() {
   return (
     <AntdRegistry>
       <div className="edit-profile-page">
+        <UpdateProfileAvatarForm userId={user.id} />
         <UpdateProfileForm user={getPlainObject(user)} isAdmin={session.user.isAdmin} />
       </div>
     </AntdRegistry>

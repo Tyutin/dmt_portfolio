@@ -59,6 +59,11 @@ export async function updateProfileAction(
   return getPlainObject(updatedUser);
 }
 
+export async function updateProfileImageAction(userId: string, imageMax: string) {
+  await projectTypeormAdapter.users.updateProfileImage(userId, imageMax)
+  revalidatePath("/");
+}
+
 export async function addWorkAction(userId: string, title: string, imageName: string) {
   await projectTypeormAdapter.wokrs.addWork(userId, title, imageName)
   revalidatePath("/");

@@ -43,6 +43,22 @@ function getTypeormAdapter() {
         Object.assign(user, userInfo);
         return await manager.save(user);
       },
+      async updateProfileImage(
+        userId: string,
+        imageMax: string
+      ): Promise<UserEntity | Error> {
+        const manager = await getManager();
+        const user = await manager.findOne(UserEntity, {
+          where: { id: userId },
+        });
+        if (!user) {
+          return new Error("Пользователь с таким ID не найден", {
+            cause: "404",
+          });
+        }
+        user.imageMax = imageMax;
+        return await manager.save(user)
+      },
     },
     students: {
       async getStudents(): Promise<UserEntity[]> {
