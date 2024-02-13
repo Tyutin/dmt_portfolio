@@ -99,6 +99,17 @@ export default function Header({ session }: HeaderProps) {
                 Работы
               </Link>
             </li>
+            <li className="header__nav-element">
+              <Link
+                href={"/about"}
+                className={classNames(
+                  "header__nav-link",
+                  pathname === "/about" && "header__nav-link_active"
+                )}
+              >
+                О нас
+              </Link>
+            </li>
           </ul>
         </nav>
         <AuthControl session={session} />
@@ -161,6 +172,17 @@ export default function Header({ session }: HeaderProps) {
               )}
             >
               Работы
+            </Link>
+          </li>
+          <li className="header__nav-element">
+            <Link
+              href={"/about"}
+              className={classNames(
+                "header__nav-link",
+                pathname === "/about" && "header__nav-link_active"
+              )}
+            >
+              О нас
             </Link>
           </li>
         </ul>

@@ -1,0 +1,33 @@
+.about-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  &__kafedra-wrapper {
+    width: 915px;
+    height: 601px;
+    position: relative;
+
+    @media (max-width: 935px) {
+      width: calc(100vw - 20px);
+      height: calc((100vw - 20px) * .6568);
+    }
+
+    @media (max-width: 676px) {
+      width: calc(100vw - 10px);
+      height: calc((100vw - 10px) * .6568);
+    }
+  }
+
+  &__info {
+    font-size: 24px;
+    max-width: 1100px;
+    text-align: justify;
+
+    @media (max-width: 1100px) {
+      text-align: left;
+      font-size: 20px;
+    }
+  }
+}
