@@ -6,6 +6,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import './EditProfilePage.scss'
+import UpdateProfileAvatarForm from "@/components/UpdateProfileAvatarForm/UpdateProfileAvatarForm";
 
 
 export default async function EditStudentPage({
@@ -25,6 +26,7 @@ export default async function EditStudentPage({
   return (
     <AntdRegistry>
       <div className="edit-profile-page">
+        <UpdateProfileAvatarForm redirectLink={`/students/${slug}`} userId={student.id} />
         <UpdateProfileForm user={getPlainObject(student)} isAdmin={true} />
       </div>
     </AntdRegistry>

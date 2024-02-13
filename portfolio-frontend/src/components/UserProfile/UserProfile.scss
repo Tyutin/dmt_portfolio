@@ -14,7 +14,11 @@
   }
 
   &__content {
-    flex-grow: 1
+    flex-grow: 1;
+
+    @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
+      width: 100%;
+    }
   }
 
   &__aside {

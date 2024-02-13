@@ -1,5 +1,13 @@
+@import '../../../../../assets/styles/variables.scss';
+
 .edit-profile-page {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 80px;
+
+  @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+    flex-direction: column;
+    gap: 40px;
+  }
 }

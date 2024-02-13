@@ -123,6 +123,12 @@ function getTypeormAdapter() {
           relations: {
             user: true,
           },
+          where: {
+            user: {
+              isBanned: false,
+              isHidden: false
+            }
+          }
         });
       },
     },

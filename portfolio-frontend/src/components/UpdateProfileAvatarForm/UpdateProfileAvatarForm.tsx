@@ -9,10 +9,12 @@ import { useState } from "react";
 
 type UpdateProfileAvatarFormProps = {
   userId: string;
+  redirectLink?: string
 };
 
 export default function UpdateProfileAvatarForm({
   userId,
+  redirectLink = '/profile'
 }: UpdateProfileAvatarFormProps) {
   const [isFetching, setIsFetching] = useState(false);
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -27,7 +29,7 @@ export default function UpdateProfileAvatarForm({
     });
     const otvet = await response.json();
     await updateProfileImageAction(userId, otvet.imageName);
-    router.push("/profile");
+    router.push(redirectLink);
   };
   return (
     <AntdRegistry>
