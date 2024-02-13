@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #000;
   color: #fff;
 
   @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
@@ -18,6 +17,7 @@
     align-items: center;
     width: 100%;
     padding: 40px 20px;
+    background: linear-gradient(180deg, #ea297b 0%, #ee2970 100%);
 
     @media (max-width: ($TABLET_LONG_WIDTH - 1px)) {
       padding: 20px 10px;
@@ -56,7 +56,7 @@
       position: fixed;
       left: 100%;
       top: 82px;
-      background-color: #000;
+      background: linear-gradient(180deg, #ee2970 0%, #ff6d28 100%);
       width: 100vw;
       height: calc(100vh - 82px);
       z-index: 20;

@@ -22,7 +22,8 @@
     flex-direction: column;
     padding: 20px 30px;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
-    background: linear-gradient(180deg, #ff6d28 0%, #ea047e 100%);
+    // background: linear-gradient(180deg, #ee2970 0%, #ff6d28 100%);
+    background: linear-gradient(180deg, #ee2970 0%, #ff6d29 100%);
     font-size: 24px;
     color: #fff;
 
@@ -47,7 +48,7 @@
     }
   }
 
-  &__overlay-tooltip {
+  &__overlay-tooltip.ant-popover {
     padding-top: 41px;
 
     @media (max-width: $MAIN_LAYOUT_MAX_WIDTH) {
@@ -61,7 +62,6 @@
     
     & .ant-popover-inner {
       padding: 0;
-      top: 98px;
     }
   }
 }

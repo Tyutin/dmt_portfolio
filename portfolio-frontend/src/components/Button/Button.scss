@@ -39,4 +39,24 @@
     font-weight: 700;
     text-shadow: 3px 3px 4px rgba(0,0,0,0.3);
   }
+
+  &_theme_transparent {
+    font-size: 20px;
+    padding: 16px 30px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #fff;
+    line-height: 1;
+    border: 2px solid #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $PINK;
+    }
+
+    @media (max-width: ($TABLET_SHORT_WIDTH - 1px)) {
+      font-size: 18px;
+      padding: 12px 18px;
+    }
+  }
 }

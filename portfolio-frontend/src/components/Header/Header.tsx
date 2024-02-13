@@ -90,10 +90,10 @@ export default function Header({ session }: HeaderProps) {
             </li>
             <li className="header__nav-element">
               <Link
-                href={"/"}
+                href={"/works"}
                 className={classNames(
                   "header__nav-link",
-                  pathname === "/" && "header__nav-link_active"
+                  pathname === "/works" && "header__nav-link_active"
                 )}
               >
                 Работы
@@ -126,43 +126,39 @@ export default function Header({ session }: HeaderProps) {
                 "header__nav-link",
                 pathname === "/" && "header__nav-link_active"
               )}
-              onClick={closeMenu}
             >
               Главная
             </Link>
           </li>
           <li className="header__nav-element">
             <Link
-              href={"/"}
+              href={"/students"}
               className={classNames(
                 "header__nav-link",
-                pathname === "/" && "header__nav-link_active"
+                pathname === "/students" && "header__nav-link_active"
               )}
-              onClick={closeMenu}
             >
-              О нас
+              Студенты
             </Link>
           </li>
           <li className="header__nav-element">
             <Link
-              href={"/"}
+              href={"/teachers"}
               className={classNames(
                 "header__nav-link",
-                pathname === "/" && "header__nav-link_active"
+                pathname === "/teachers" && "header__nav-link_active"
               )}
-              onClick={closeMenu}
             >
-              Советы по обучению
+              Преподаватели
             </Link>
           </li>
           <li className="header__nav-element">
             <Link
-              href={"/"}
+              href={"/works"}
               className={classNames(
                 "header__nav-link",
-                pathname === "/" && "header__nav-link_active"
+                pathname === "/works" && "header__nav-link_active"
               )}
-              onClick={closeMenu}
             >
               Работы
             </Link>
