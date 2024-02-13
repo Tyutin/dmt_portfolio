@@ -85,13 +85,31 @@ function getTypeormAdapter() {
       },
     },
     wokrs: {
-      async addWork(userId: string, title: string, imageName: string):Promise<WorkEntity> {
+      async addWork(
+        userId: string,
+        title: string,
+        imageName: string
+      ): Promise<WorkEntity> {
         const manager = await getManager();
-        const user = await manager.findOne(UserEntity, {where: {id: userId}})
-        const work = Object.assign(new WorkEntity(), {title, imageName, user})
-        return await manager.save(work)
-      }
-    }
+        const user = await manager.findOne(UserEntity, {
+          where: { id: userId },
+        });
+        const work = Object.assign(new WorkEntity(), {
+          title,
+          imageName,
+          user,
+        });
+        return await manager.save(work);
+      },
+      async getAllWorks(): Promise<WorkEntity[]> {
+        const manager = await getManager();
+        return manager.find(WorkEntity, {
+          relations: {
+            user: true,
+          },
+        });
+      },
+    },
   };
 }
 
