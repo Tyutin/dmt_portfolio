@@ -13,23 +13,6 @@ services:
     networks:
       - app-network
 
-  # backend:
-  #   restart: always
-  #   build:
-  #     context: ./
-  #     dockerfile: ./backend/Dockerfile
-  #   ports:
-  #     - "3001:3001"
-  #   networks:
-  #     - app-network
-  #   depends_on:
-  #     - portfolio_db
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-size: "20m"
-  #       max-file: "3"
-
   # frontend:
   #   restart: always
   #   build:
