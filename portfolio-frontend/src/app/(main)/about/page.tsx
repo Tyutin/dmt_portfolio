@@ -10,8 +10,6 @@ export default function AboutPage() {
           <Image
             src="/images/kafedra.jpg"
             alt='Фото преподавателей кафедры "Технология промшленной и художественной обработки материалов"'
-            wrapperClassName="works-page__card-wrapper"
-            className="works-page__card-image"
             preview={{
               mask: "Открыть",
             }}

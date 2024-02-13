@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start -p 80",
     "build:prod": "next build",
-    "start:prod": "next start -p 443",
+    "start:prod": "next start -p 80",
     "lint": "next lint",
     "typeorm": "typeorm-ts-node-esm -d src/typeorm/dataSource/postgresDataSource.ts",
     "db:drop": "rm -rf dist & yarn typeorm schema:drop",
