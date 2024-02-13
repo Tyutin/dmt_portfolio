@@ -34,7 +34,7 @@ export default function Portfolio({ works, userId }: PortfolioProps) {
               <li className="portfolio__element" key={work.id}>
                 <div className="portfolio-card">
                   <Image
-                    src={`/images/works/${work.imageName}`}
+                    src={`/api/works/${work.imageName}`}
                     alt={work.title}
                     wrapperClassName="portfolio-card__wrapper"
                     className="portfolio-card__image"

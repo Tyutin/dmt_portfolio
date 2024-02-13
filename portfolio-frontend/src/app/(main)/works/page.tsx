@@ -19,7 +19,7 @@ export default async function WorksPage() {
               return (
                 <li className="works-page__element" key={id}>
                   <Image
-                    src={`/images/works/${imageName}`}
+                    src={`/api/works/${imageName}`}
                     alt={title}
                     wrapperClassName="works-page__card-wrapper"
                     className="works-page__card-image"

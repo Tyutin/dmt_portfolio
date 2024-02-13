@@ -19,7 +19,7 @@ export default function AddWorkForm({ userId }: AddWorkFormProps) {
     setIsFetching(true);
     const data = new FormData();
     data.append("file", values.upload[0].originFileObj);
-    const response = await fetch("/api/images", { method: "POST", body: data });
+    const response = await fetch("/api/works", { method: "POST", body: data });
     const otvet = await response.json();
     await addWorkAction(userId, values.title, otvet.imageName);
     router.push('/profile')

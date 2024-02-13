@@ -20,13 +20,13 @@ export async function POST(req: Request) {
   const buffer = Buffer.from(await file.arrayBuffer());
   // @ts-expect-error sdasaddas
   const ext = file.name.split('.').pop()
-  const filename =  `/images/avatars/${randomUUID()}.${ext}`
+  const filename =  `${randomUUID()}.${ext}`
   try {
     await writeFile(
-      path.join(process.cwd(), "public" + filename),
+      path.join(process.cwd(), "public/uploads/avatars/" + filename),
       buffer
     );
-    return NextResponse.json({ imageName: filename, status: 201 });
+    return NextResponse.json({ imageName: `/api/avatars/${filename}`, status: 201 });
   } catch (error) {
     console.log("Error occured ", error);
     return NextResponse.json({ Message: "Failed", status: 500 });

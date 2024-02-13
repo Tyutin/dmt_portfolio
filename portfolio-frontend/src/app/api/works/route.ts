@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   const filename =  `${randomUUID()}.${ext}`
   try {
     await writeFile(
-      path.join(process.cwd(), "public/images/works/" + filename),
+      path.join(process.cwd(), "public/uploads/works/" + filename),
       buffer
     );
     return NextResponse.json({ imageName: filename, status: 201 });
